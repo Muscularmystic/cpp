@@ -62,48 +62,54 @@ int main()
 {
     string num;  
 	int flag=0;   
-    int size,partition;      
-    cout<<"Enter number:"<<endl;
-    cin>>num;		
-    size=num.length();
-    
-    if((num[0]=='0') && (num[1]=='0'))
-    {
-    	num.erase(0,1);
-    	num.erase(0,1);
-    	size=num.length();
-    }
-    
-    if(num[0]=='0')
-    {
-    	num.erase(0,1);
-    	size=num.length();
-	}
-	
-    if(size%3==1)
-    {
-    	num.insert(0,"00");
-    	size=num.length();
-    }
-	
-	if(size%3==2)
-	{
-		num.insert(0,"0");
-    	size=num.length();
-    }
-	
-	
-    int i=0;
-    partition=size/3;
+	int choice;
+    int size,partition;  
 	do
-	{
-		read(num[i+2],num[i+1],num[i]);
-		cout<<" "<<value[partition-1];
-		cout<<endl;
-		i=i+3;
+	{ 
+	    cout<<"Enter number:"<<endl;
+	    cin>>num;		
+	    size=num.length();
+	    
+	    if((num[0]=='0') && (num[1]=='0'))
+	    {
+	    	num.erase(0,1);
+	    	num.erase(0,1);
+	    	size=num.length();
+	    }
+	    
+	    if(num[0]=='0')
+	    {
+	    	num.erase(0,1);
+	    	size=num.length();
+		}
 		
-		partition=partition-1;
-	}while(i<size && partition!=0);
-
+	    if(size%3==1)
+	    {
+	    	num.insert(0,"00");
+	    	size=num.length();
+	    }
+		
+		if(size%3==2)
+		{
+			num.insert(0,"0");
+	    	size=num.length();
+	    }
+		
+		
+	    int i=0;
+	    partition=size/3;
+	    cout<<"Given number in word format:\n"<<endl;
+		do
+		{
+			read(num[i+2],num[i+1],num[i]);
+			cout<<" "<<value[partition-1];
+			cout<<endl;
+			i=i+3;
+			
+			partition=partition-1;
+		}while(i<size && partition!=0);
+		cout<<"\nFor another number press 1"<<endl<<"press 0 for exit"<<endl;
+		cin>>choice;
+	}while(choice==1);
     return 0;
 }
