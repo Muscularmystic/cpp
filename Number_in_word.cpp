@@ -1,10 +1,11 @@
 #include<iostream>
 #include<string.h>
 using namespace std;
+
 string tenth[]={"Ten","Twenty","Thirty","fourty","fifty","sixty","Seventy","Eighty","Ninety"};
 string hundred[]={"One Hundred","Two Hundred","Three Hundred","four Hundred","five Hundred","six Hundred","Seven Hundred","Eight Hundred","Nine Hundred"};
 string unit[]={"One","Two","Three","Four","Five","Six","Seven","Eight","Nine"};
-string value[]={".","Thousand","Million","Billion","Trillion","Quadrillion","Quntillion"};
+string value[]={".","Thousand","Million","Billion","Trillion","Quadrillion","Quntillion","Sextillion","Septillion","Octillion","Nonillion","decillion"};
 string Eleven_to_ninetin[]={"Eleven","Twelve","Thirteen","Fourteen","fifthteen","Sixteen","Seventeen","Eighteen","Nineteen"};
 
 void read(char char1,char char2,char char3)
@@ -65,19 +66,31 @@ int main()
     cout<<"Enter number:"<<endl;
     cin>>num;		
     size=num.length();
+    
+    if((num[0]=='0') && (num[1]=='0'))
+    {
+    	num.erase(0,1);
+    	num.erase(0,1);
+    	size=num.length();
+    }
+    
+    if(num[0]=='0')
+    {
+    	num.erase(0,1);
+    	size=num.length();
+	}
+	
     if(size%3==1)
     {
     	num.insert(0,"00");
     	size=num.length();
-    
-	}
+    }
 	
 	if(size%3==2)
 	{
 		num.insert(0,"0");
     	size=num.length();
-    	
-	}
+    }
 	
 	
     int i=0;
